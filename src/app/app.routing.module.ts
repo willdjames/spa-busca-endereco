@@ -15,7 +15,7 @@ const rotas: Routes = [
         RouterModule,
         HomeModule,
         EnderecoModule,
-        RouterModule.forRoot(rotas, {enableTracing: true})
+        RouterModule.forRoot(rotas, {useHash: true})
     ],
     exports: [
         RouterModule

@@ -1,21 +1,30 @@
 <div class="mt-4">
-  <form>
+  <a [routerLink]="['']" class="btn btn-secondary">Voltar</a>
+</div>
+
+<div class="mt-4">
+
+  <form [formGroup]="cepForm">
 
     <div class="form-group">
-      <input type="email" 
+      <input type="text" 
         class="form-control" 
         id="exampleInputEmail1" 
         aria-describedby="emailHelp" 
         placeholder="Digite um CEP"
         #exampleInputEmail1
-        (keyup)="capturacepDigitado(exampleInputEmail1.value)">
+        formControlName="first"
+        (keyup)="capturaCepDigitado(exampleInputEmail1.value)">
       
       <small id="emailHelp" 
         class="form-text text-muted">cep digitado: {{cepDigitado}}
       </small>
     </div>
   
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="cepForm.invalid" 
+      (click)="buscaEndereco()" 
+      type="submit" 
+      class="btn btn-primary btn-block">Buscar</button>
 
 </form>
 </div>
